@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spendly — Smart Finance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">₹</span><div><strong>Spendly</strong><small>Smart money, simply.</small></div></div>
+      <nav>
+        <button class="nav-item active" data-section="dashboard"><span>⌂</span> Dashboard</button>
+        <button class="nav-item" data-section="expenses"><span>↕</span> Expenses</button>
+        <button class="nav-item" data-section="budgets"><span>◫</span> Budgets</button>
+        <button class="nav-item" data-section="splits"><span>⇄</span> Split Bills</button>
+        <button class="nav-item" data-section="lending"><span>↗</span> Lending & Borrowing</button>
+        <button class="nav-item" data-section="statements"><span>▣</span> Bank Statements</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-item" data-section="parent"><span>♙</span> Parent Control</button>
+        <button class="nav-item" data-section="settings"><span>⚙</span> Settings</button>
+        <div class="profile-mini"><div class="avatar">VA</div><div><b>Vrinda</b><small>Personal account</small></div><span>•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuBtn">☰</button>
+        <div><span class="eyebrow">Tuesday, September 24</span><h1 id="pageTitle">Good morning, Vrinda <span>✦</span></h1></div>
+        <div class="top-actions"><button class="icon-btn">⌕</button><button class="icon-btn">♧</button><button class="profile-pill"><span class="avatar small">VA</span><span>Vrinda</span>⌄</button></div>
+      </header>
+
+      <section id="dashboard" class="page-section active-section">
+        <div class="hero-row">
+          <div><h2>Your money at a glance</h2><p>Stay on top of your spending, budgets and shared money.</p></div>
+          <button class="primary" data-open-modal="expenseModal">+ Add expense</button>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card dark"><div class="stat-top"><span>Total spent</span><span class="trend">↓ 8.4%</span></div><strong>₹24,680</strong><small>of ₹40,000 monthly budget</small><div class="progress light"><i style="width:61.7%"></i></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Remaining</span><span class="soft-icon">◔</span></div><strong>₹15,320</strong><small>38.3% of your budget left</small><div class="progress"><i style="width:38.3%"></i></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Owed to you</span><span class="soft-icon">↗</span></div><strong>₹4,850</strong><small>3 people owe you</small><div class="mini-list"><span>Rahul <b>₹2,000</b></span><span>Aadya <b>₹1,250</b></span></div></article>
+          <article class="stat-card"><div class="stat-top"><span>You owe</span><span class="soft-icon">↙</span></div><strong>₹1,320</strong><small>2 pending settlements</small><div class="mini-list"><span>Riya <b>₹720</b></span><span>Om <b>₹600</b></span></div></article>
+        </div>
+
+        <div class="content-grid">
+          <article class="panel chart-panel"><div class="panel-head"><div><h3>Spending overview</h3><p>September 2026</p></div><select><option>Monthly</option><option>Weekly</option></select></div><div class="chart-wrap"><div class="y-labels"><span>₹8k</span><span>₹6k</span><span>₹4k</span><span>₹2k</span><span>₹0</span></div><div class="bars" id="bars"></div><div class="x-labels"><span>1</span><span>5</span><span>10</span><span>15</span><span>20</span><span>24</span><span>30</span></div></div></article>
+          <article class="panel"><div class="panel-head"><div><h3>Category budget</h3><p>Where your money is going</p></div><button class="text-btn" data-section-jump="budgets">View all →</button></div><div class="category-list"><div class="cat"><span class="cat-icon green">⌂</span><div class="cat-info"><b>Food & Dining</b><small>₹4,200 of ₹6,000</small><div class="progress"><i style="width:70%"></i></div></div><strong>70%</strong></div><div class="cat"><span class="cat-icon gold">◇</span><div class="cat-info"><b>Shopping</b><small>₹5,450 of ₹5,000</small><div class="progress danger"><i style="width:100%"></i></div></div><strong class="danger-text">109%</strong></div><div class="cat"><span class="cat-icon blue">✈</span><div class="cat-info"><b>Travel</b><small>₹2,180 of ₹5,000</small><div class="progress"><i style="width:44%"></i></div></div><strong>44%</strong></div><div class="cat"><span class="cat-icon purple">▤</span><div class="cat-info"><b>Bills</b><small>₹3,200 of ₹5,500</small><div class="progress"><i style="width:58%"></i></div></div><strong>58%</strong></div></div></article>
+        </div>
+
+        <div class="content-grid lower"><article class="panel"><div class="panel-head"><div><h3>Recent transactions</h3><p>Your latest activity</p></div><button class="text-btn" data-section-jump="expenses">See all →</button></div><div class="transactions" id="transactions"><div class="transaction"><span class="tx-icon orange">◉</span><div><b>Swiggy</b><small>Food & Dining · Today, 12:42 PM</small></div><strong class="minus">− ₹420</strong></div><div class="transaction"><span class="tx-icon green">⌂</span><div><b>Uber</b><small>Travel · Today, 09:15 AM</small></div><strong class="minus">− ₹280</strong></div><div class="transaction"><span class="tx-icon gold">◇</span><div><b>Amazon</b><small>Shopping · Yesterday</small></div><strong class="minus">− ₹1,850</strong></div><div class="transaction"><span class="tx-icon purple">▤</span><div><b>Electricity Bill</b><small>Bills · Sep 22</small></div><strong class="minus">− ₹1,240</strong></div></div></article><article class="panel alert-card"><div class="alert-head"><span class="alert-dot">!</span><div><h3>Budget alert</h3><p>Shopping is over your limit</p></div></div><div class="alert-number">₹450 <small>over budget</small></div><p>Your shopping budget is ₹5,000. You've spent ₹5,450 this month.</p><button class="secondary" data-section-jump="budgets">Review budget</button></article></div>
+      </section>
+
+      <section id="expenses" class="page-section"><div class="hero-row"><div><h2>Expenses</h2><p>Track and categorize every transaction.</p></div><button class="primary" data-open-modal="expenseModal">+ Add expense</button></div><div class="toolbar"><input id="expenseSearch" placeholder="Search transactions..."/><select><option>All categories</option><option>Food & Dining</option><option>Shopping</option><option>Travel</option><option>Bills</option></select><button class="secondary">Export CSV</button></div><div class="panel"><div class="table-head"><span>Transaction</span><span>Category</span><span>Date</span><span>Amount</span></div><div id="expenseRows"></div></div></section>
+
+      <section id="budgets" class="page-section"><div class="hero-row"><div><h2>Budgets</h2><p>Set limits and keep your spending on track.</p></div><button class="primary">+ Add category</button></div><div class="budget-grid"><article class="budget-card"><div><span class="cat-icon green">⌂</span><b>Food & Dining</b></div><strong>₹4,200 <small>/ ₹6,000</small></strong><div class="progress"><i style="width:70%"></i></div><small>₹1,800 remaining</small></article><article class="budget-card warning"><div><span class="cat-icon gold">◇</span><b>Shopping</b></div><strong>₹5,450 <small>/ ₹5,000</small></strong><div class="progress danger"><i style="width:100%"></i></div><small>₹450 over budget</small></article><article class="budget-card"><div><span class="cat-icon blue">✈</span><b>Travel</b></div><strong>₹2,180 <small>/ ₹5,000</small></strong><div class="progress"><i style="width:44%"></i></div><small>₹2,820 remaining</small></article><article class="budget-card"><div><span class="cat-icon purple">▤</span><b>Bills</b></div><strong>₹3,200 <small>/ ₹5,500</small></strong><div class="progress"><i style="width:58%"></i></div><small>₹2,300 remaining</small></article></div></section>
+
+      <section id="splits" class="page-section"><div class="hero-row"><div><h2>Split Bills</h2><p>Share expenses and settle up with friends.</p></div><button class="primary">+ New group</button></div><div class="split-layout"><article class="panel"><div class="panel-head"><div><h3>Active groups</h3><p>Shared expenses waiting to be settled</p></div></div><div class="group-row"><div class="group-avatar">GO</div><div><b>Goa Trip</b><small>4 members · 8 expenses</small></div><span class="balance positive">+ ₹2,400</span></div><div class="group-row"><div class="group-avatar">FD</div><div><b>Flatmates</b><small>3 members · 12 expenses</small></div><span class="balance negative">− ₹780</span></div><div class="group-row"><div class="group-avatar">BF</div><div><b>Besties</b><small>5 members · 6 expenses</small></div><span class="balance positive">+ ₹1,050</span></div></article><article class="panel settle"><h3>Net balance</h3><div class="big-balance">+₹2,670</div><p>You are owed more than you owe.</p><button class="secondary">View settlements</button></article></div></section>
+
+      <section id="lending" class="page-section"><div class="hero-row"><div><h2>Lending & Borrowing</h2><p>Never lose track of money between friends.</p></div><button class="primary">+ Record money</button></div><div class="stats-grid two"><article class="stat-card"><span>Money lent</span><strong>₹8,500</strong><small>₹4,850 still outstanding</small></article><article class="stat-card"><span>Money borrowed</span><strong>₹3,200</strong><small>₹1,320 still to repay</small></article></div><div class="panel"><div class="table-head"><span>Person</span><span>Type</span><span>Due</span><span>Status</span></div><div class="table-row"><span><b>Rahul</b><small>For September rent</small></span><span class="positive">Lent</span><span>₹2,000</span><span class="badge pending">Pending</span></div><div class="table-row"><span><b>Aadya</b><small>Emergency cash</small></span><span class="positive">Lent</span><span>₹1,250</span><span class="badge pending">Pending</span></div><div class="table-row"><span><b>Riya</b><small>Dinner + cab</small></span><span class="negative">Borrowed</span><span>₹720</span><span class="badge due">Due soon</span></div></div></section>
+
+      <section id="statements" class="page-section"><div class="hero-row"><div><h2>Bank Statements</h2><p>Import transactions and let Spendly organize them.</p></div></div><div class="upload panel"><div class="upload-icon">↑</div><h3>Upload your statement</h3><p>CSV or Excel files supported. Your backend can process and categorize transactions later.</p><button class="primary" id="fakeUpload">Choose file</button><small id="uploadStatus">UI demo only — no backend connected.</small></div><div class="info-grid"><div class="info-card"><b>1. Upload</b><span>Import your monthly bank statement.</span></div><div class="info-card"><b>2. Categorize</b><span>Backend will map transactions to categories.</span></div><div class="info-card"><b>3. Review</b><span>Confirm categories before saving.</span></div></div></section>
+
+      <section id="parent" class="page-section"><div class="hero-row"><div><h2>Parent Control</h2><p>Monitor spending and set safe category limits for linked minor accounts.</p></div><span class="status-pill">● Monitoring active</span></div><div class="parent-grid"><article class="panel"><div class="profile-large"><div class="avatar large">AR</div><div><h3>Aarav's account</h3><p>Minor account · Linked to your profile</p></div></div><div class="parent-stat"><span>Monthly limit</span><b>₹12,000</b></div><div class="parent-stat"><span>Spent this month</span><b>₹8,240</b></div><div class="parent-stat"><span>Remaining</span><b>₹3,760</b></div></article><article class="panel"><h3>Category controls</h3><p class="muted">Set the limits your linked account can use.</p><div class="control-row"><span>Shopping</span><label class="switch"><input type="checkbox" checked><i></i></label></div><div class="control-row"><span>Entertainment</span><label class="switch"><input type="checkbox" checked><i></i></label></div><div class="control-row"><span>Food & Dining</span><label class="switch"><input type="checkbox" checked><i></i></label></div><div class="control-row locked"><span>Gaming / Apps</span><label class="switch"><input type="checkbox"><i></i></label></div></article></div></section>
+
+      <section id="settings" class="page-section"><div class="hero-row"><div><h2>Settings</h2><p>Manage your Spendly preferences.</p></div></div><div class="panel settings"><label>Full name<input value="Vrinda Atluri"></label><label>Currency<select><option>INR — ₹</option><option>USD — $</option></select></label><label>Monthly income / budget<input value="40000"></label><button class="primary">Save changes</button></div></section>
+    </main>
+  </div>
+
+  <div class="modal" id="expenseModal"><div class="modal-card"><button class="close" data-close-modal>×</button><h2>Add expense</h2><p>Connect this form to your Java/backend later.</p><label>Merchant<input id="merchant" placeholder="e.g. Zomato"></label><label>Amount<input id="amount" type="number" placeholder="₹ 0"></label><label>Category<select id="category"><option>Food & Dining</option><option>Shopping</option><option>Travel</option><option>Bills</option><option>Entertainment</option></select></label><div class="modal-actions"><button class="secondary" data-close-modal>Cancel</button><button class="primary" id="addExpense">Add expense</button></div></div></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
